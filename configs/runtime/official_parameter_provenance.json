@@ -1,0 +1,76 @@
+{
+  "schema": "despoina.official-parameter-provenance.v1",
+  "profile": "despoina-h6-dcim-final",
+  "parameters": [
+    {
+      "id": "pe_fp32_action_energy_45nm",
+      "tool": "Accelergy",
+      "version": "0.4",
+      "estimator": "Aladdin",
+      "source_node_nm": 45,
+      "precision": "FP32",
+      "raw_value": 38.55419140625,
+      "raw_unit": "pJ/action",
+      "scaling": "E22=E45*(22/45)^2",
+      "final_value": 9.214927723765432,
+      "final_unit": "pJ/action",
+      "input_sha256": "d9c226f6f77245cb31c43a41adf8ccdc739c5feff95cfa9f914736f36547c35b",
+      "output_sha256": "9a4e66fbd23d256a7c53533172276308a65ee98db1750cb61a723ee4f5f8b83d",
+      "consumer": "official_energy_contract.h: fused PE MAC events and dynamic row-mean FP32 scalar events"
+    },
+    {
+      "id": "dcim_sram_sense_precharge",
+      "tool": "NeuroSim",
+      "version": "1.4",
+      "source_node_nm": 22,
+      "precision": "INT8 digital sequential SRAM",
+      "raw_value": 639.6399270054075,
+      "raw_unit": "pJ/finalized D128 row",
+      "scaling": "none; directly reported eligible SRAM read primitive",
+      "final_value": 639.6399270054075,
+      "final_unit": "pJ/finalized D128 row",
+      "input_sha256": "72f2cab85d9e2874506bf919689a831374bed05afc32058c8bb6d454d3f5c427",
+      "raw_output_sha256": "d46de1db83d53c66b2a0923c79b278b934ff766144072c3cbd5f2f1567f2d758",
+      "raw_output_role": "provenance-only; never parsed by the official runtime",
+      "derived_primitive": "neurosim_official_dcim_primitive.json",
+      "derived_primitive_sha256": "c8f5bb82189618fbe8f10331d04fb444b57d9308a404f19c28e75be8c87cf794",
+      "consumer": "despoina_official_dcim_params.h consumes only the derived eligible primitive"
+    },
+    {
+      "id": "dcim_digital_datapath",
+      "tool": "Accelergy",
+      "version": "0.4",
+      "source_node_nm": 22,
+      "precision": "INT8 multiplier/adder plus comparator and conversion",
+      "raw_value": 4464.951643,
+      "raw_unit": "pJ/finalized D128 row",
+      "scaling": "exact native event equations; no post-hoc cycle projection",
+      "final_value": 4464.951643,
+      "final_unit": "pJ/finalized D128 row",
+      "input_sha256": "7ef12d5e70b04fd4bef2b6508d566d0bb4884b805352a6a5b33aa83af57b3101",
+      "output_sha256": "0852c3f3d1c17b409a270f42f18ed02d73e54136c420382c15363bb265411089",
+      "consumer": "NeuraCiM event accounting"
+    },
+    {
+      "id": "dcim_fifo_accesses",
+      "tool": "CACTI",
+      "version": "7.0",
+      "source_node_nm": 22,
+      "precision": "16-byte access",
+      "raw_value": {
+        "read": 1.73,
+        "write": 1.9
+      },
+      "raw_unit": "pJ/access",
+      "scaling": "32 accesses per D128 FP32 row, counted by native FIFO events",
+      "final_value": {
+        "read": 1.73,
+        "write": 1.9
+      },
+      "final_unit": "pJ/access",
+      "input_sha256": "6c5522cee36f424c6a4ad35239c9c3f2acf572eebbf7c4c492de4f11d553665a",
+      "output_sha256": "6c5522cee36f424c6a4ad35239c9c3f2acf572eebbf7c4c492de4f11d553665a",
+      "consumer": "NeuraCiM native push/inject/retire/pop event counters"
+    }
+  ]
+}

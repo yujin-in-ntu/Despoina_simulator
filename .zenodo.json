@@ -1,0 +1,27 @@
+{
+  "title": "Despoina Self-Contained Accelerator Simulator",
+  "version": "1.1.0",
+  "upload_type": "software",
+  "creators": [
+    {"name": "Lee, Yujin"},
+    {"name": "Jang, Minsu"}
+  ],
+  "description": "This public release is not intended to serve as a complete provenance archive of the paper’s experimental environment. Its purpose is to provide the core Despoina implementation as a self-contained, executable simulator. The included official profile builds and runs the Despoina simulator driver, PE-array runtime, dynamic row-mean path, DCIM path, and DRAMsim3 memory model on a generated synthetic t0+t1 workload. Its energy claim is limited to supported-component steady-state read/compute and native FIFO accesses, not full-chip or deployment energy. It contains no experiment results, reviewer data, checkpoints, or competitor baseline implementations. Licensing is file-scoped; see LICENSE.md and NOTICE. Version 1.1.0 aligns the simulator datapath with the paper's description: the PE accumulator streams only the row change dY to DCIM once per changed row, Z accumulates in place (whole layers in the 4 MB Post-Combination Buffer while they fit, the rest in HBM), no previous Y is stored, NPF H state is kept below tau and charged in HBM, and an NPF distance bound skips H_prev reads without changing any propagation decision. Version 1.0.0 (10.5281/zenodo.21510101) is the release cited in the MICRO 2026 artifact appendix; simulator outputs of 1.1.0 differ from it.",
+  "notes": "Mixed file-scoped open licensing: Apache-2.0, CC-BY-4.0, MIT, BSD-2-Clause, and BSD-3-Clause apply to different files. See LICENSE.md, NOTICE, and THIRD_PARTY_LICENSES.md; no single license applies to the whole archive.",
+  "keywords": ["accelerator simulation", "dynamic graph neural networks", "sparse processing"],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.10896280",
+      "relation": "isDerivedFrom",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.5281/zenodo.21510101",
+      "relation": "isNewVersionOf",
+      "scheme": "doi",
+      "resource_type": "software"
+    }
+  ],
+  "access_right": "open"
+}

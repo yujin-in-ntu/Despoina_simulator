@@ -1,0 +1,3 @@
+# Imported source snapshots retain their upstream whitespace byte-for-byte.
+src/NeuraSim/** whitespace=-trailing-space,-blank-at-eof,-space-before-tab
+third_party/DRAMsim3-1.0.0/** whitespace=-trailing-space,-blank-at-eof,-space-before-tab

@@ -1,0 +1,22 @@
+Despoina self-contained simulator
+Copyright 2026 Yujin Lee and Minsu Jang
+
+NeuraSim-derived runtime attribution
+-------------------------------------
+Upstream: “NeuraChip/neurachip: NeuraChip Artifact Evaluation ISCA 2024”
+Authors credited by the upstream artifact: Kaustubh Shivdikar and
+Nicolas Bohm Agostini
+Version: neurachip-isca2024-v1.4.1
+DOI: 10.5281/zenodo.10896280
+License for marked derived files: Creative Commons Attribution 4.0
+
+Modifications in this distribution include integration of the Despoina
+PE/cluster/array, scheduler, finite staging/cache, indexer, exact dynamic
+row-mean, DCIM, and DRAMsim3 paths; a standalone build; synthetic local
+validation; removal of MongoDB/network/notification/visualizer/external
+executable hooks; fail-closed result-directory handling; and exclusion of all
+competitor baselines and private experiment workflows/data/results.
+
+New Despoina-authored files marked Apache-2.0 are separately licensed. DRAMsim3,
+fmt, inih, and json retain the notices listed in THIRD_PARTY_LICENSES.md. No
+upstream endorsement is implied.

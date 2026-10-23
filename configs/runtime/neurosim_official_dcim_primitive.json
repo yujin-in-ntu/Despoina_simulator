@@ -1,0 +1,33 @@
+{
+  "schema": "despoina.neurosim-v1.4.official-dcim-primitive.v1",
+  "profile": "despoina-h6-dcim-final",
+  "source_artifact": "digital_sequential_raw.json",
+  "source_artifact_sha256": "d46de1db83d53c66b2a0923c79b278b934ff766144072c3cbd5f2f1567f2d758",
+  "eligible_consumer_fields": {
+    "dimension": 128,
+    "technology_nm": 22,
+    "mode": "conventionalSequential_SRAM",
+    "adc_applicable": false,
+    "sense_amp_applicable": true,
+    "sram_sense_precharge_pj_per_finalized_d128_row": 639.6399270054075,
+    "sram_wordline_decoder_pj_per_finalized_d128_row": 35.5113137375654,
+    "sram_read_total_pj_per_finalized_d128_row": 675.1512407429729
+  },
+  "excluded_source_fields": {
+    "policy": "provenance-only; never imported by the official runtime",
+    "categories": [
+      "full ProcessingUnit accumulation, transport, area, leakage, and total energy",
+      "generic analog or ACIM parameters",
+      "non-finite or unavailable full ProcessingUnit latency",
+      "weight-program latency and energy"
+    ]
+  },
+  "consumer_assertions": {
+    "adc_cycles": 0,
+    "dimension": 128,
+    "lanes": 16,
+    "fifo_rows": 16,
+    "weight_program_latency_modeled": false,
+    "weight_program_energy_modeled": false
+  }
+}

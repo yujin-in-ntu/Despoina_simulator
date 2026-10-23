@@ -1,0 +1,58 @@
+{
+  "schema": "despoina.official-dcim.factorized-row-mean.v4",
+  "profile": "despoina-h6-dcim-final",
+  "scope": {
+    "included": "steady-state resident-weight inference read/compute and native FIFO traffic",
+    "excluded": "one-time model deployment and weight programming",
+    "reason": "Figure 8(b) reports steady-state inference; setup is outside its denominator",
+    "claim": "supported-component steady-state read/compute energy only; not full-chip or deployment energy",
+    "resident_image_behavior": "runtime quantizes, hash-checks, and records source/replicated bytes and load events",
+    "weight_program_latency_modeled": false,
+    "weight_program_energy_modeled": false,
+    "zero_program_timing_interpretation": "not applicable, not a measured zero",
+    "full_model_deployment_energy_claimed": false
+  },
+  "timing": {
+    "owner": "NeuraCiM native pipeline",
+    "lanes": 16,
+    "fifo_rows": 16,
+    "dimension": 128,
+    "precharge_sram_read_cycles": 2,
+    "compute_full_int8_cycles": 1,
+    "shift_add_accumulate_cycles": 1,
+    "output_dequantize_relu_cycles": 2,
+    "external_scheduler_allowed": false,
+    "posthoc_cycle_projection_allowed": false
+  },
+  "energy_per_finalized_d128_row_pj": {
+    "neurosim_sram_read": {
+      "sense_precharge_array": 639.6399270054075,
+      "wordline_decoder": 35.5113137375654,
+      "subtotal": 675.1512407429729
+    },
+    "accelergy_digital_datapath": {
+      "int8_multipliers_16384": 3927.752704,
+      "adder_trees_128": 516.331264,
+      "comparator_tree": 8.067675,
+      "quantizer_128": 6.4,
+      "dequantizer_128": 6.4,
+      "subtotal_no_fifo": 4464.951643
+    },
+    "official_read_compute_total_no_fifo": 5140.102883742973,
+    "official_read_compute_pj_per_scalar_int8_mac": 0.31372698265032795,
+    "fifo": {
+      "input_write_pj_per_16B": 1.9,
+      "input_read_pj_per_16B": 1.73,
+      "output_write_pj_per_16B": 1.9,
+      "output_read_pj_per_16B": 1.73,
+      "accesses_per_D128_FP32_row": 32,
+      "counted_from_native_events": true
+    }
+  },
+  "hash_contract": {
+    "neurosim_official_primitive": "neurosim_official_dcim_primitive.json",
+    "neurosim_official_primitive_sha256": "c8f5bb82189618fbe8f10331d04fb444b57d9308a404f19c28e75be8c87cf794",
+    "neurosim_raw_provenance_only_sha256": "d46de1db83d53c66b2a0923c79b278b934ff766144072c3cbd5f2f1567f2d758",
+    "provenance_manifest": "official_parameter_provenance.json"
+  }
+}
